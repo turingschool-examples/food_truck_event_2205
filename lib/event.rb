@@ -38,7 +38,13 @@ class Event
     item_list.uniq.sort
   end
 
+  def total_inventory
+    food_truck_inventories_array
+    inventories_in_single_hash
+  end
+
   #helper1 to overstocked_items
+  #helper1 to sorted_item_list
   def food_truck_inventories_array
     @inventories = @food_trucks.map do |food_truck|
       food_truck.inventory
@@ -46,6 +52,7 @@ class Event
   end
 
   #helper2 to overstocked_items
+  #helper2 to sorted_item_list
   def list_of_all_items_at_event
     item_list = @inventories.flat_map do |inventory|
       inventory.map do |item, count|
@@ -56,7 +63,13 @@ class Event
 
   #helper3 to overstocked_items
   def inventories_in_single_hash
-    merged_inventory = @inventories.inject(&:merge)
+    merged_inventory = Hash.new(0)
+    @inventories.each do |inventory|
+      inventory.each do |item, count|
+        merged_inventory[item] += count
+      end
+    end
+    merged_inventory
   end
 
   #helper4 to overstocked_items
