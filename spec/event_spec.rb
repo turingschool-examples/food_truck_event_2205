@@ -144,4 +144,8 @@ RSpec.describe Event do
     expect(@event.date).to eq("12/12/1912")
   end
 
+  it 'returns false when stock is lower than sell amount' do
+    expect(@event.sell(@item1, 200)).to be false
+  end
+
 end
