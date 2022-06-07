@@ -11,4 +11,12 @@ class FoodTruck
     @inventory[:name].to_i
   end
 
+  def stock(item, quantity)
+    @inventory.store(item, quantity)
+
+    end
+
+
+
+
 end
