@@ -7,7 +7,7 @@ RSpec.describe Event do
   let!(:item1) {Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})}
   let!(:item2) {Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})}
   let!(:item3) {Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})}
-  let!(:item3) {Item.new({name: "Banana Nice Cream", price: "$4.25"})}
+  let!(:item4) {Item.new({name: "Banana Nice Cream", price: "$4.25"})}
   let!(:event) {Event.new("South Pearl Street Farmers Market")}
 
   it "exists" do
@@ -40,5 +40,16 @@ RSpec.describe Event do
     event.add_food_truck(food_truck2)
     event.add_food_truck(food_truck3)
     expect(event.food_truck_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
+  end
+
+  it "can return food trucks that sell a particular item" do
+    food_truck1.stock(item1, 35)
+    food_truck3.stock(item1, 65)
+    food_truck2.stock(item4, 20)
+    event.add_food_truck(food_truck1)
+    event.add_food_truck(food_truck2)
+    event.add_food_truck(food_truck3)
+    expect(event.food_trucks_that_stock(item1)).to eq([food_truck1, food_truck3])
+    expect(event.food_trucks_that_stock(item1)).to eq([food_truck2])
   end
 end
