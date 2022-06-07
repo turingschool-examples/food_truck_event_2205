@@ -16,12 +16,7 @@ class Event
 
   def food_trucks_that_sell(item)
     trucks = []
-    @food_trucks.each do |truck|
-      truck.inventory.each do |food|
-        food[0] == item ? trucks << truck : nil
-
-      end
-    end
+    @food_trucks.each { |truck| truck.inventory.each {|food| food[0] == item ? trucks << truck : nil }}
     trucks
   end
 
