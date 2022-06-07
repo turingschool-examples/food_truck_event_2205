@@ -161,4 +161,14 @@ RSpec.describe Event do
     expect(@event.sell(@item4, 5)).to be true
   end
 
+  it 'decreases stock from first available truck' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    @event.sell(@item4, 5)
+
+    expect(@food_truck2.check_stock(@item4)).to eq(45)
+  end
+
 end
