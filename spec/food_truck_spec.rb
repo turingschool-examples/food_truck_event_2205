@@ -11,4 +11,7 @@ RSpec.describe FoodTruck do
     expect(@food_truck).to be_instance_of(FoodTruck)
   end
 
+  it 'returns name' do
+    expect(@food_truck.name).to eq("Rocky Mountain Pies")
+  end
 end
