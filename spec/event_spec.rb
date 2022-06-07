@@ -14,4 +14,8 @@ RSpec.describe do
   it 'has a name' do
     expect(@event.name).to eq("South Pearl Street Farmers Market")
   end
+
+  it 'has an array of food trucks' do
+    expect(@event.food_trucks).to eq([])
+  end
 end
