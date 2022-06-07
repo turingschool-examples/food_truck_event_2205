@@ -14,4 +14,8 @@ RSpec.describe FoodTruck do
   it 'returns name' do
     expect(@food_truck.name).to eq("Rocky Mountain Pies")
   end
+
+  it 'initializes with empty inventory hash' do
+    expect(@food_truck.inventory).to eq({})
+  end
 end
