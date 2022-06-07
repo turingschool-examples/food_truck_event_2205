@@ -79,4 +79,18 @@ RSpec.describe Event do
         expect(event.total_inventory.length).to eq(4)
         expect(event.total_inventory[item_1]).to eq({quantity: 100, food_trucks: [food_truck_1, food_truck_3]})
     end
+
+    it 'can sell items' do
+        event.add_food_truck(food_truck_1)
+        event.add_food_truck(food_truck_2)
+        event.add_food_truck(food_truck_3)
+
+        expect(event.sell(item_1, 200)).to be false
+        expect(event.sell(item_5, 1)).to be false
+        expect(event.sell(item_4, 5)).to be true
+        expect(food_truck_2.check_stock(item_4)). to eq(45)
+        expect(event.sell(item_1, 40)).to be true
+        expect(food_truck_1.check_stock(item_1)). to eq(0)
+        expect(food_truck_3.check_stock(item_1)). to eq(60)
+    end
 end
