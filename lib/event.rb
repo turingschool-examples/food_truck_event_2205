@@ -1,11 +1,12 @@
 class Event
 require 'pry'
 
-  attr_reader :name, :food_trucks
+  attr_reader :name, :food_trucks, :date
 
   def initialize(name)
     @name = name
     @food_trucks = []
+    @date = "12/12/1912"
   end
 
   def add_food_truck(food_truck)
