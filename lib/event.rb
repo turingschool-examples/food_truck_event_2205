@@ -41,6 +41,14 @@ class Event
   def total_inventory
     food_truck_inventories_array
     inventories_in_single_hash
+    total_inventory_hash = Hash.new
+    inventories_in_single_hash.each do |item, count|
+      total_inventory_hash[item] = {
+        quantity: count,
+        food_trucks: food_trucks_that_sell(item)
+      }
+    end
+    total_inventory_hash
   end
 
   #helper1 to overstocked_items
