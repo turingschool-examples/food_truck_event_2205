@@ -7,4 +7,8 @@ class FoodTruck
     @inventory = {}
   end
 
+  def check_stock(item)
+    @inventory[:name].to_i
+  end
+
 end
