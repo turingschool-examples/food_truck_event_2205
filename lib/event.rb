@@ -20,6 +20,16 @@ require 'pry'
     @food_trucks.select {|truck| truck.inventory.key?(item)}
   end
 
+  def all_items_on_sale
+    all_items = []
+    @food_trucks.each do |truck|
+      truck.inventory.each do |inventory_item|
+        all_items << inventory_item[0]
+      end
+    end
+    all_items
+  end
+
   def sorted_item_list
     all_item_names = []
     @food_trucks.each do |truck|
@@ -44,13 +54,8 @@ require 'pry'
     @food_trucks.sum {|truck| truck.check_stock(item)}
   end
 
-  # def overstocked_items
-  #   items_and_inventory = {}
-  #   @food_trucks.each do |truck|
-  #     truck.inventory.each do |item|
-  #       all_items[item.name]
-  #     end
-  #   end
-  # end
+  def overstocked_items
+
+  end
 
 end
