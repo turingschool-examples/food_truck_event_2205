@@ -14,9 +14,9 @@ RSpec.describe Event do
     before(:each) do
         food_truck_1.stock(item_1, 35)
         food_truck_1.stock(item_2, 7)
-        food_truck_2.stock(item_3, 35)
-        food_truck_2.stock(item_4, 35)
-        food_truck_3.stock(item1, 65) 
+        food_truck_2.stock(item_3, 25)
+        food_truck_2.stock(item_4, 50)
+        food_truck_3.stock(item_1, 65) 
     end
     it 'exists' do
         expect(event).to be_a(Event)
@@ -28,6 +28,7 @@ RSpec.describe Event do
 
     it 'has a list of food trucks' do
         expect(event.food_trucks).to eq([]) 
+
         event.add_food_truck(food_truck_1)
         event.add_food_truck(food_truck_2)
         event.add_food_truck(food_truck_3)
@@ -43,7 +44,7 @@ RSpec.describe Event do
         expect(event.food_truck_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"]) 
     end
 
-    it 'returns food trucks that sell and item' do
+    it 'returns food trucks that sell an item' do
         event.add_food_truck(food_truck_1)
         event.add_food_truck(food_truck_2)
         event.add_food_truck(food_truck_3)
