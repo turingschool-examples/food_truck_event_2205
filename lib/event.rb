@@ -22,4 +22,17 @@ class Event
       food_truck.inventory.include?(item)
     end
   end
+
+  def overstocked_items
+    require "pry"; binding.pry
+  end
+
+  def sorted_item_list
+    @food_trucks.flat_map do |food_truck|
+      # require "pry"; binding.pry
+      food_truck.inventory.map do |item, amount|
+        item.name
+      end
+    end.uniq.sort
+  end
 end
