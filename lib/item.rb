@@ -4,6 +4,6 @@ class Item
 
   def initialize(data)
     @name = data[:name]
-    @price = data[:price]
+    @price = data[:price].delete('$').to_f
   end
-end 
+end
