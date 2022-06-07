@@ -19,4 +19,10 @@ class FoodTruck
     new_quantity = @inventory[item] + quantity
     @inventory[item] = new_quantity
   end
+
+  def potential_revenue(food_truck)
+    @inventory.sum do |item, quantity|
+      item.price * quantity
+    end
+  end
 end
