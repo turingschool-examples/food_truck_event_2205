@@ -62,4 +62,18 @@ require 'pry'
     return_array
   end
 
+  def total_inventory
+    return_hash = {}
+
+    all_items_on_sale.uniq.each do |item|
+      item_hash = {
+        quantity: total_inventory_by_item(item),
+        food_trucks: food_trucks_that_sell(item)
+      }
+      return_hash[item] = item_hash
+    end
+
+    return_hash
+  end
+
 end
