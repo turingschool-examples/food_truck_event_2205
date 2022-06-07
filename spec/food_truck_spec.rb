@@ -2,17 +2,20 @@ require './lib/item.rb'
 require './lib/food_truck.rb'
 
 RSpec.describe FoodTruck do
-
   before :each do
-    @item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
-    @item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
+    @food_truck = FoodTruck.new("Rocky Mountain Pies")
   end
 
-  it 'exists' do
-    expect(@item1).to be_a(Item)
-    expect(@item2).to be_a(Item)
+  it "truck exists and has name" do
+    expect(@food_truck).to be_a(FoodTruck)
+    expect(@food_truck.name).to eq("Rocky Mountain Pies")
   end
 
-  xit ''
+  it "can check stock of truck" do
+    
+
+
+
+
 
 end
