@@ -42,7 +42,13 @@ RSpec.describe do
     @food_truck.stock(@item1, 30)
     @food_truck.stock(@item2, 12)
     expect(@food_truck.inventory.length).to eq(2)
-    # require 'pry' ; binding.pry
     expect(@food_truck.inventory).to eq({@item1 => 30, @item2 => 12})
+  end
+
+  it 'can add up potential revenue for an event' do
+    @food_truck.stock(@item1, 30)
+    @food_truck.stock(@item2, 12)
+    @food_truck.potential_revenue
+    expect(@food_truck.potential_revenue).to eq(142.50)
   end
 end
