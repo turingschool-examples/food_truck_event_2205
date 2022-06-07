@@ -53,7 +53,13 @@ require 'pry'
   end
 
   def overstocked_items
-
+    return_array = []
+    all_items_on_sale.uniq.each do |item|
+      if (sold_by_more_than_one_truck?(item) && (total_inventory_by_item(item) > 50))
+        return_array << item
+      end
+    end
+    return_array
   end
 
 end
