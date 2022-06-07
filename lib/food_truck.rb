@@ -29,8 +29,8 @@ class FoodTruck
   def items_in_inventory_by_name
     @inventory.map {|item_object, quantity| item_object.name}
   end
-  #
-  # def items_in_inventory_by_name
-  #   @inventory.map {|item_object, quantity| {item_object.name => quantity}}
-  # end
+  
+  def items_in_inventory_with_quantity
+    @inventory.map {|item_object, quantity| {item_object.name => quantity}}
+  end
 end
