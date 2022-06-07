@@ -17,4 +17,8 @@ RSpec.describe Event do
     expect(@event.name).to eq("South Pearl Street Farmers Market")
   end
 
+  it 'initializes with empty array of food trucks' do
+    expect(@event.food_trucks).to eq([])
+  end
+
 end
