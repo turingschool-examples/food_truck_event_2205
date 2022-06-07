@@ -57,4 +57,14 @@ RSpec.describe Event do
     event.food_trucks_that_sell(item1)
     event.food_trucks_that_sell(item4)
   end
+
+  it 'has potential_revenue' do
+    event = Event.new("South Pearl Street Farmers Market")
+    food_truck1 = FoodTruck.new("Rocky Mountain Pies")
+    food_truck2 = FoodTruck.new("Ba-Nom-a-Nom")
+    food_truck3 = FoodTruck.new("Palisade Peach Shack")
+    expect(food_truck1.potential_revenue).to eq 148.75
+    expect(food_truck2.potential_revenue).to eq 345.00
+    expect(food_truck3.potential_revenue).to eq 243.75
+    end
 end
