@@ -20,7 +20,9 @@ class FoodTruck
   end
 
   def stock(item, num)
-
+    require "pry"; binding.pry
+      @food_trucks.each do |food_truck|
+        @inventory[food_truck]
+      end
+    end
   end
-
-end

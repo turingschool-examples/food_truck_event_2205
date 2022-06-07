@@ -20,8 +20,14 @@ class Event
 
   def food_trucks_that_sell(item)
     @food_trucks.find_all do |food_truck|
-      food_truck.check_stock(@item1) == item
+      food_truck.check_stock(@item1).include?(item)
     end
-
   end
+
+  # def potential_revenue
+  #   @food_trucks.map do |food_truck|
+  #     food_truck.stock
+  #   end
+  # end
+
 end
