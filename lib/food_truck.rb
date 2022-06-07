@@ -3,6 +3,10 @@ class FoodTruck
 
   def initialize(name)
     @name = name
-    @inventory = {}
+    @inventory = Hash.new(0)
+  end
+
+  def check_stock(item_name)
+    @inventory[item_name]
   end
 end
