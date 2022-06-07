@@ -23,4 +23,13 @@ class FoodTruck
       @inventory[item] += quantity
     end
   end
+
+  def potential_revenue
+    individul_item_revenue = @inventory.map do |item_instance, quantity|
+      item_instance.price * quantity
+    end
+    individul_item_revenue.sum
+  end
 end
+
+# A FoodTruck will be able to calculate their potential_revenue - the sum of all their items' price * quantity.
