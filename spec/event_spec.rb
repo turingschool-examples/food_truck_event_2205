@@ -78,5 +78,14 @@ RSpec.describe do
     expect(@event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
   end
 
+  it 'creates a total inventory for an event' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+    @food_truck3.stock(@item3, 10)
+    expect(@event.total_inventory.class).to eq(Hash)
+    expect(@event.total_inventory.class).to eq(Hash)
+  end
+
 
 end

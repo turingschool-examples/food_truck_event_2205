@@ -28,7 +28,6 @@ class Event
     @food_trucks.each do |food_truck|
       total = 0
       total += food_truck.check_stock(multiples)
-
       total > 50 ? answer << multiples : nil
     end
     answer
@@ -38,6 +37,16 @@ class Event
     @items = []
     @food_trucks.each {|food_truck| food_truck.inventory.each {|item, amount| @items << item.name }}
     @items.uniq.sort
+  end
+
+  def total_inventory
+    total = {}
+    @food_trucks.each {|food_truck| food_truck.inventory.each {|item, amount| total[item] = {quantity: 0, food_trucks: []}}}
+    total.each do |item, hash|
+      hash[:quantity] += (@food_trucks.each {|food_truck| food_truck.check_stock(item)}).sum
+      require 'pry'; binding.pry
+      # += @food_trucks.each {|food_truck| total += food_truck.check_stock(item)}
+    end
   end
 
 end
