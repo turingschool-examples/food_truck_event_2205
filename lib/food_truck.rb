@@ -7,4 +7,10 @@ class FoodTruck
     @inventory = {}
   end
 
+  def check_stock(item)
+    if @inventory[item] == nil
+      return 0
+    end
+  end
+
 end
