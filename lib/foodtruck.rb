@@ -1,5 +1,8 @@
+require 'bigdecimal'
+
 class FoodTruck
 	attr_reader :name, :inventory
+
 	def initialize(name)
 		@name = name
 		@inventory = Hash.new(0)
@@ -11,5 +14,13 @@ class FoodTruck
 
 	def stock(item, quantity)
 		@inventory[item] += quantity
+	end
+
+	def potential_revenue
+		potential_revenue = 0
+		@inventory.each do |item, quantity|
+		potential_revenue += (item.price.delete('$').to_f) * (quantity.to_f)
+		end
+		return potential_revenue
 	end
 end
