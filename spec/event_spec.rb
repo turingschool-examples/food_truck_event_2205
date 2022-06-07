@@ -77,6 +77,6 @@ RSpec.describe Event do
 
         expect(event.total_inventory).to be_a(Hash)
         expect(event.total_inventory.length).to eq(4)
-        expect(event.total_inventory[item_1]).to eq({quantitiy: 100, food_trucks: [food_truck_1, food_truck_2]})
+        expect(event.total_inventory[item_1]).to eq({quantity: 100, food_trucks: [food_truck_1, food_truck_3]})
     end
 end
