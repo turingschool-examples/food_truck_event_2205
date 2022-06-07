@@ -48,4 +48,11 @@ RSpec.describe FoodTruck do
     expect(@food_truck.inventory.count).to eql(2)
   end
 
+  it 'calculates potential revenue' do
+    @food_truck.stock(@item1, 25)
+    @food_truck.stock(@item2, 12)
+    @food_truck.calculate_potential_revenue(@inventory)
+    expect(@food_truck.potential_revenue).to eql(123.75)
+  end
+
 end
