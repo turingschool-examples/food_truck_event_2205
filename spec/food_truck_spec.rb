@@ -2,22 +2,25 @@ require "./lib/item"
 require "./lib/food_truck"
 
 
-RSpec.describe(Item) do
+RSpec.describe(FoodTruck) do
   before(:each) do
-    @item1 = Item.new({name: "Peach Pie (Slice)", price: "$3.75"})
-    @item2 = Item.new({name: "Apple Pie (Slice)", price: "$2.50"})
+    @food_truck = FoodTruck.new("Rocky Mountain Pies")
   end
 
   it(("#exists")) do
-    expect(@item1).to(be_a(Item))
-    expect(@item2).to(be_a(Item))
+    expect(@food_truck).to(be_a(FoodTruck))
   end
 
-  it("#name of pie in item 2") do
-    expect(@item2.name).to(eq("Apple Pie (Slice)"))
+  it("#name of pie ") do
+    expect(@food_truck.name).to(eq("Rocky Mountain Pies"))
   end
 
-  it("#price of pie in item2") do
-    expect(@item2.price).to(eq("$2.50"))
+  it("#has an empty curly brace") do
+    expect(@food_truck.inventory).to(eq({}))
   end
+
+  it("#can check the stock")
+  @food_truck = FoodTruck.new("Rocky Mountain Pies")
+  @item1 = Item.new({name: "Peach Pie (Slice)", price: "$3.75"})
+  expect(@food_truck.check_stock(@item1)).to(eq((0)))
 end
