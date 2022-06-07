@@ -1,5 +1,5 @@
 require 'rspec'
-require ''./lib/item'
+require './lib/item'
 require './lib/food_truck'
 
 RSpec.describe FoodTruck do
