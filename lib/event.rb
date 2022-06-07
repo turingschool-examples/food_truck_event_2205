@@ -40,12 +40,9 @@ require 'pry'
     all_inventory.count(item) > 1
   end
 
-  # def total_inventory_by_item(item)
-  #   all_inventory =
-  #   @food_trucks.each do |truck|
-  #
-  #   end
-  # end
+  def total_inventory_by_item(item)
+    @food_trucks.sum {|truck| truck.check_stock(item)}
+  end
 
   # def overstocked_items
   #   items_and_inventory = {}
