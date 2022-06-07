@@ -34,4 +34,10 @@ class Event
     answer
   end
 
+  def sorted_item_list
+    @items = []
+    @food_trucks.each {|food_truck| food_truck.inventory.each {|item, amount| @items << item.name }}
+    @items.uniq.sort
+  end
+
 end

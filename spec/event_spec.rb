@@ -69,4 +69,14 @@ RSpec.describe do
     @food_truck3.stock(@item3, 10)
     expect(@event.overstocked_items).to eq([@item1])
   end
+
+  it 'creates a sorted item list' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+    @food_truck3.stock(@item3, 10)
+    expect(@event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
+  end
+
+
 end
