@@ -31,17 +31,21 @@ RSpec.describe FoodTruck do
 
 
   it 'stocks an item' do
-    @food_truck.add_new_item_to_inventory(@item1)
     @food_truck.stock(@item1, 30)
     expect(@food_truck.inventory[@item1]).to eql(30)
   end
 
-  it 'stocks another item' do
-    @food_truck.add_new_item_to_inventory(@item1)
+  it 'stocks the same item' do
     @food_truck.stock(@item1, 30)
-    require "pry"; binding.pry
     @food_truck.stock(@item1, 25)
     expect(@food_truck.inventory[@item1]).to eql(55)
+  end
+
+  it 'stocks a new item' do
+    @food_truck.stock(@item1, 25)
+    @food_truck.stock(@item2, 12)
+    expect(@food_truck.inventory[@item2]).to eql(12)
+    expect(@food_truck.inventory.count).to eql(2)
   end
 
 end
