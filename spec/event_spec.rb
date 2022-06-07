@@ -38,24 +38,28 @@ RSpec.describe Event do
     @event.add_food_truck(@food_truck3)
   end
 
-  it 'can add food trucks to event' do
+  xit 'can check for overstocked items' do
+    expect(@event.overstocked_items).to eq(@item1)
+  end
+
+  xit 'can add food trucks to event' do
     expect(@event.food_trucks).to eq([@food_truck1, @food_truck2, @food_truck3])
   end
 
-  it 'can list truck names' do
+  xit 'can list truck names' do
     expect(@event.food_truck_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
   end
 
-  it 'can list trucks that sell a certain item' do
+  xit 'can list trucks that sell a certain item' do
     expect(@event.food_trucks_that_sell(@item1)).to eq([@food_truck1, @food_truck3])
     expect(@event.food_trucks_that_sell(@item3)).to eq([@food_truck2, @food_truck3])
   end
 
-  it 'can list items alphabetically, with no doubles' do
+  xit 'can list items alphabetically, with no doubles' do
     expect(@event.sorted_item_list).to eq(["Peach Pie (Slice)", "Apple Pie (Slice)", "Banana Nice Cream", "Peach-Raspberry Nice Cream"])
   end
 
-  it 'can check total inventory' do
+  xit 'can check total inventory' do
     expected_hash = {@item1 => {quantity: 100,
                                 food_trucks:@event.food_trucks_that_sell(@item1)},
                      @item2 => {quantity: 100,
