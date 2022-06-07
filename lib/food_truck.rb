@@ -7,4 +7,8 @@ class FoodTruck
     @inventory = {}
   end
 
+  def check_stock(item)
+    @inventory.select {|item_object| item_object == item}
+  end
+
 end
