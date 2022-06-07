@@ -14,4 +14,8 @@ RSpec.describe Event do
   it 'is an Event' do
     expect(@event).to be_instance_of(Event)
   end
+
+  it 'has a name' do
+    expect(@event.name).to eq("South Pearl Street Farmers Market")
+  end
 end
