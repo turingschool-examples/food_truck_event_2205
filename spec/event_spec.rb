@@ -11,4 +11,22 @@ RSpec.describe Event do
       event.add_food_truck(food_truck)
     end
   end
+
+  describe "#food_truck_names" do
+    context "when there are no food trucks" do
+      it "returns no names" do
+        expect(event.food_truck_names).to eq([])
+      end
+    end
+
+    context "when there are food trucks" do
+      before do
+        event.add_food_truck(food_truck)
+      end
+
+      it "returns no names" do
+        expect(event.food_truck_names).to include(food_truck.name)
+      end
+    end
+  end
 end
