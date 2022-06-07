@@ -10,7 +10,7 @@ RSpec.describe Event do
     expect(event).to be_a(Event)
   end
 
-  xit "can add a food truck to event" do
+  it "can add a food truck to event" do
     event = Event.new("South Pearl Street Farmers Market")
     item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
     item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
@@ -28,10 +28,10 @@ RSpec.describe Event do
     event.add_food_truck(food_truck1)
     event.add_food_truck(food_truck2)
     event.add_food_truck(food_truck3)
-    expect(event.add_food_truck(food_truck1)).to eq()
+    expect(event.food_trucks).to eq([food_truck1, food_truck2, food_truck3])
   end
 
-  xit "can list food truck names" do
+  it "can list food truck names" do
     event = Event.new("South Pearl Street Farmers Market")
     item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
     item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
