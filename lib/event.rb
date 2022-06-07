@@ -1,4 +1,3 @@
-require 'pry'
 class Event
   attr_reader :name,
               :food_trucks
@@ -24,7 +23,18 @@ class Event
     end
   end
 
-  
+  def sorted_item_list
+    hash_inventory = @food_trucks.map {|food_truck| food_truck.inventory}
+    array_of_items = hash_inventory.map do |hash_of_item_instances|
+        hash_of_item_instances.flatten.uniq
+      end
+    end
+  end
+      # if array_of_inventory.length < array_of_inventory.uniq.length
+      # end
+
+
+
 
   # def overstocked_items #come back to if time
   #   # the_inventory = @food_trucks.map do |food_truck|
@@ -48,7 +58,3 @@ class Event
   #     end
   #     return "IDK"
   #   end
-
-
-
-end

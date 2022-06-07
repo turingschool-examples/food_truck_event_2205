@@ -62,7 +62,7 @@ RSpec.describe Event do
     expect(@event.overstocked_items).to eq([@item1])
   end
 
-  it 'can return a sorted list of Item names for an Event' do
+  xit 'can return a sorted list of Item names for an Event' do
     @food_truck3.stock(@item3, 10)
     expect(@event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
 
