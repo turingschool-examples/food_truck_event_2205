@@ -171,4 +171,15 @@ RSpec.describe Event do
     expect(@food_truck2.check_stock(@item4)).to eq(45)
   end
 
+  it 'decreases stock from next available truck when previous trucks depleted' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    @event.sell(@item1, 40)
+
+    expect(@food_truck1.check_stock(@item1)).to eq(0)
+    expect(@food_truck3.check_stock(@item1)).to eq(60)
+  end
+
 end
