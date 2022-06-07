@@ -15,11 +15,8 @@ RSpec.describe FoodTruck do
   it 'returns name of the truck' do
     expect(@food_truck.truck_name).to eq("Rocky Mountain Pies")
   end
-#
-#   it 'returns the price of the slice' do
-#     expect(@item1.price).to eq(3.75)
-#     expect(@item2.price).to eq(2.50)
-#   end
-# end
 
+  it 'returns an empty hash of inventory' do
+    expect(@food_truck.inventory).to eq({})
+  end
 end
