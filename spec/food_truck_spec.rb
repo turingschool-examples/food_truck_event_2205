@@ -19,4 +19,8 @@ RSpec.describe FoodTruck do
   it 'returns an empty hash of inventory' do
     expect(@food_truck.inventory).to eq({})
   end
+
+  it 'can check the stock of inventory' do
+    expect(@food_truck.check_stock(@item1)).to eq(0)
+  end
 end
