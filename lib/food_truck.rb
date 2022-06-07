@@ -11,4 +11,9 @@ class FoodTruck
     amount == nil ? 0 : amount
   end
 
+def stock(food, amount)
+  @inventory[food] = amount
+end
+
+
 end
