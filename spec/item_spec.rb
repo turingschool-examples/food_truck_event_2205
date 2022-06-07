@@ -1,7 +1,7 @@
 require 'rspec'
-require './lib/class'
+require './lib/item'
 
-RSpec.describe Class do
+RSpec.describe Item do
   describe 'Iteration 1' do
     before :each do
       @item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
