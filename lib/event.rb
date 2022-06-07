@@ -11,4 +11,8 @@ class Event
     @food_trucks << food_truck
   end
 
+  def food_truck_names
+    @food_trucks.map {|truck| truck.name}
+  end
+
 end
