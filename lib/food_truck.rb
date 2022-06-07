@@ -7,10 +7,10 @@ class FoodTruck
     #maybe??
     # i know this is wrong but i dont know how to fix it
     @inventory = {}
-    @stock = 0
   end
 
-  def check_stock(item)
-    @stock
+  def stock
+    @stock = Item.new({item: item, qty: qty})
+    @inventory << stock
   end
 end
