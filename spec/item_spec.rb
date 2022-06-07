@@ -12,4 +12,8 @@ RSpec.describe Item do
     expect(@item1).to be_instance_of(Item)
   end
 
+  it 'returns item name' do
+    expect(@item2.name).to eq('Apple Pie (Slice)')
+  end
+
 end
