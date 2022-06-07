@@ -11,7 +11,7 @@ class FoodTruck
     @inventory << {:stock_item => stock_item, :quantity => stock_quantity}
   end
 
-  def check_stock(target_item)
+  def check_stock(target_item) #checks total quantity
     current_stock = 0
     @inventory.each do |item|
       if item[:stock_item] == target_item
@@ -19,6 +19,14 @@ class FoodTruck
       end
     end
     current_stock
+  end
+
+  def potential_revenue
+    total_potential_rev = 0
+    @inventory.each do |item|
+      total_potential_rev += item[:stock_item].price * item[:quantity]
+    end
+    total_potential_rev
   end
 
 end
