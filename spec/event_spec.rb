@@ -38,20 +38,22 @@ RSpec.describe Event do
       @event.add_food_truck(@food_truck3)
     end
 
-
-    xit 'can add food trucks to event' do
+    it 'can add food trucks to event' do
       expect(@event.food_trucks).to eq([@food_truck1, @food_truck2, @food_truck3])
     end
 
-    xit 'can list truck names' do
+    it 'can list truck names' do
       expect(@event.food_truck_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
     end
+
+    it 'can list trucks that sell *item*' do
+      expect(@event.food_trucks_that_sell(@item1)).to eq([@food_truck1, @food_truck3])
 
     xit 'can check for overstocked items' do
       expect(@event.overstocked_items).to eq(@item1)
     end
-    
-    xit 'can list items alphabetically, with no doubles' do
+
+    it 'can list items alphabetically, with no doubles' do
       expect(@event.sorted_item_list).to eq(["Peach Pie (Slice)", "Apple Pie (Slice)", "Banana Nice Cream", "Peach-Raspberry Nice Cream"])
     end
 
