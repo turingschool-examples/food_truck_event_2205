@@ -12,10 +12,9 @@ RSpec.describe FoodTruck do
     expect(@food_truck).to be_a(FoodTruck)
   end
 
-#   it 'returns name of the slice' do
-#     expect(@item1.name).to eq("Peach Pie (Slice)")
-#     expect(@item2.name).to eq("Apple Pie (Slice)")
-#   end
+  it 'returns name of the truck' do
+    expect(@food_truck.truck_name).to eq("Rocky Mountain Pies")
+  end
 #
 #   it 'returns the price of the slice' do
 #     expect(@item1.price).to eq(3.75)
