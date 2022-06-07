@@ -4,7 +4,7 @@ class Item
 
   def initialize(input)
     @name = input[:name]
-    @price = input[:price][1..-1].to_i
+    @price = input[:price][1..-1].to_f
   end
 
 end
