@@ -146,6 +146,9 @@ RSpec.describe Event do
 
   it 'returns false when stock is lower than sell amount' do
     expect(@event.sell(@item1, 200)).to be false
+    expect(@event.sell(@item5, 1)).to be false
+
+    expect(@event.sell(@item4, 5)).to be false
   end
 
 end
