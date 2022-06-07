@@ -1,10 +1,13 @@
+require 'date'
+
 class Event
 
-  attr_reader :name, :food_trucks
+  attr_reader :name, :food_trucks, :date
 
   def initialize(name)
     @name = name
     @food_trucks = []
+    @date = Date.today
   end
 
   def add_food_truck(truck)
@@ -28,7 +31,7 @@ class Event
   end
 
   def overstocked_items
-    # ugh
+    # blerg!
     by_item = all_items.group_by { |item| item.first.name }
     mult_trucks = by_item.find_all { |name, items| items.count > 1 }.map { |items| items.last }
     overstocked = []
@@ -56,5 +59,9 @@ class Event
     end
     total_inventory_hash
   end
+
+  # def sell(item, amt)
+  #
+  # end
 
 end
