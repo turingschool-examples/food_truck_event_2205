@@ -58,4 +58,16 @@ RSpec.describe Event do
     expect(@event.food_trucks_that_sell(@item4).count).to eq(1)
   end
 
+  it "return list of overstocked items" do
+    expect(@event.overstocked_items.count).to eq(1)
+  end
+
+  it "will return a sorted list of names for event" do
+    expect(@event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
+  end
+
+  it "will return a hash of total inventory" do
+    expect(event.total_inventory.count).to eq(4)
+  end
+
 end
