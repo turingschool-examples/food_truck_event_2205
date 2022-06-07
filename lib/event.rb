@@ -31,13 +31,11 @@ require 'pry'
   end
 
   def sorted_item_list
-    all_item_names = []
-    @food_trucks.each do |truck|
-      truck.inventory.each do |inventory_item|
-        all_item_names << inventory_item[0].name
-      end
+    return_array = []
+    all_items_on_sale.each do |item|
+      return_array << item.name
     end
-    all_item_names.uniq.sort
+    return_array.uniq.sort
   end
 
   def sold_by_more_than_one_truck?(item)
