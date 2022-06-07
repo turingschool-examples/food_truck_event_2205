@@ -74,12 +74,19 @@ require 'pry'
       return false
     end
 
-    trucks = @food_trucks.select {|truck| truck.inventory.include?(item)}
+    trucks_with_stock = @food_trucks.select {|truck| truck.inventory.include?(item)}
 
-    trucks[0].stock(item,0-amount)
+    remaining_amount = amount
+    trucks_with_stock.each do |truck|
+      if truck.check_stock(item) - remaining_amount < 0
+        truck.inventory[item] = 0
+        remaining_amount -= (truck.check_stock(item) - remaining_amount).abs
+      else
+        truck.inventory[item] = (truck.inventory[item] -remaining_amount)
+      end
+    end
 
     return true
-
   end
 
 end
