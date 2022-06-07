@@ -1,5 +1,4 @@
 require './lib/item'
-require './lib/food_truck'
 
 RSpec.describe Item do
     let(:item_1) {Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})}
