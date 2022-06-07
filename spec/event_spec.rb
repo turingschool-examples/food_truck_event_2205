@@ -73,7 +73,6 @@ RSpec.describe Event do
     event.add_food_truck(food_truck3)
 
     it "has overstocked items" do
-      # require "pry"; binding.pry
       expect(event.overstocked_items.length).to eq(1)
       expect(event.overstocked_items.first).to be_a(Item)
     end
