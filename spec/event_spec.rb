@@ -16,7 +16,7 @@ RSpec.describe Event do
     @item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
     @item3 = Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})
     @item4 = Item.new({name: "Banana Nice Cream", price: "$4.25"})
-    @item5 = Item.new({name: "Snakes", price: "$100.00"})
+    @item5 = Item.new({name: 'Onion Pie', price: '$25.00'})
 
     @food_truck1.stock(@item1, 35)
     @food_truck1.stock(@item2, 7)
@@ -138,6 +138,10 @@ RSpec.describe Event do
           food_trucks: [@food_truck2,@food_truck3]
         }
       })
+  end
+
+  it 'returns date of event' do
+    expect(@event.date).to eq("12/12/1912")
   end
 
 end
