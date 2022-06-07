@@ -25,4 +25,12 @@ class FoodTruck
       item.price * quantity
     end
   end
+
+  def items_in_inventory_by_name
+    @inventory.map {|item_object, quantity| item_object.name}
+  end
+  #
+  # def items_in_inventory_by_name
+  #   @inventory.map {|item_object, quantity| {item_object.name => quantity}}
+  # end
 end
