@@ -11,4 +11,7 @@ class FoodTruck
     @inventory.select {|item_object| item_object == item}.count
   end
 
+  def stock(item, quantity)
+    @inventory.store(item, quantity)
+  end
 end
