@@ -8,9 +8,16 @@ RSpec.describe Item do
   end
 
 
-  it 'exists' do
-    expect(@item1).to be_a(Item)
-    expect(@item2).to be_a(Item)
-  end
+    it 'exists' do
+      expect(@item1).to be_a(Item)
+      expect(@item2).to be_a(Item)
+    end
+    it 'returns name of slice' do
+    expect(@item1.name).to eq("Peach Pie (Slice)")
+    expect(@item2.name).to eq("Apple Pie (Slice)")
+    end
+    it 'exists' do
+      expect(@item1).to be_a(Item)
+      expect(@item2).to be_a(Item)
+    end
 end
-  
