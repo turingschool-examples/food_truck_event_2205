@@ -55,4 +55,24 @@ RSpec.describe Event do
       end
     end
   end
+
+  describe "#total_inventory" do
+    context "when there are no food trucks" do
+      it "lists no inventory" do
+        expect(event.total_inventory).to eq({})
+      end
+    end
+
+    context "when there are food trucks" do
+      before do
+        event.add_food_truck(food_truck)
+        event.add_food_truck(pie_truck)
+      end
+
+      it "includes all items" do
+        expect(event.total_inventory.keys).to include(apple_pie)
+        expect(event.total_inventory.keys).to include(peach_pie)
+      end
+    end
+  end
 end
