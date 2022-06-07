@@ -18,4 +18,8 @@ RSpec.describe Event do
   it 'has a name' do
     expect(@event.name).to eq("South Pearl Street Farmers Market")
   end
+
+  it 'has no FoodTruck by default' do
+    expect(@event.food_trucks).to eq([])
+  end
 end
