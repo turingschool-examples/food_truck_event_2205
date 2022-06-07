@@ -25,5 +25,23 @@ class Event
     trucks
   end
 
+  #Unfinished Methods below
+
+  # def overstocked_items
+  #   all_items = []
+  #   @food_trucks.each{|truck| all_items << truck.inventory}
+  # end
+  #
+  #
+  # def sorted_item_list
+  #   item = []
+  #   @food_trucks.each do |truck|
+  #     truck.each do |inventory|
+  #       inventory.each do |item|
+  #         arr << item
+  #       end
+  #     end
+  #   end
+  # end
 
 end

@@ -57,7 +57,6 @@ RSpec.describe Event do
     @event.add_food_truck(@food_truck1)
     @event.add_food_truck(@food_truck2)
     @event.add_food_truck(@food_truck3)
-    require "pry"; binding.pry
     expect(@event.food_trucks_that_sell(@item1).count).to eql(2)
     expect(@event.food_trucks_that_sell(@item4).count).to eql(1)
     expect(@event.food_trucks_that_sell(@item1)).to eql([@food_truck1, @food_truck3])
@@ -92,5 +91,20 @@ RSpec.describe Event do
     expect(@food_truck2.potential_revenue).to eql(345.00)
     expect(@food_truck3.potential_revenue).to eql(243.75)
   end
+
+  #Unfinished Tests below
+
+  # it 'finds overstock items' do
+  #   @food_truck1.stock(@item1, 35)
+  #   @food_truck1.stock(@item2, 7)
+  #   @food_truck2.stock(@item4, 50)
+  #   @food_truck2.stock(@item3, 25)
+  #   @food_truck3.stock(@item1, 65)
+  #   @event.add_food_truck(@food_truck1)
+  #   @event.add_food_truck(@food_truck2)
+  #   @event.add_food_truck(@food_truck3)
+  #   require "pry"; binding.pry
+  #   expect(@event.overstocked_items).to eql(148.75)
+  # end
 
 end
