@@ -9,10 +9,8 @@ class FoodTruck
 
   def check_stock(item)
     if @inventory.include?(item)
-      all_num_of_item = @inventory.find_all do |item_instance|
-        item_instance == item
-      end
-      all_num_of_item.count
+      specific_item = @inventory.find {|item_instance|item_instance[0] == item}
+      return specific_item[1]
     else
       0
     end
