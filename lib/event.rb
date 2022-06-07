@@ -13,4 +13,8 @@ class Event
   def add_food_truck(food_truck)
     @food_trucks.push(food_truck)
   end
+
+  def food_truck_names
+    @food_trucks.map {|truck| truck.name}
+  end
 end
