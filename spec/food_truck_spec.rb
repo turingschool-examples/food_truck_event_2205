@@ -5,7 +5,7 @@ require 'pry'
 
 RSpec.describe FoodTruck do
   it "food truck exist" do
-    food_truck = FoodTruck.new("Rocky Mountain Pies") price: '$2.50'})
+    food_truck = FoodTruck.new("Rocky Mountain Pies")
     expect(food_truck).to be_a FoodTruck
   end
 

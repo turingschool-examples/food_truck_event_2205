@@ -1,6 +1,4 @@
 require './lib/item'
-require 'rspec'
-require 'pry'
 
 RSpec.describe Item do
   it "item exist" do
@@ -18,6 +16,4 @@ RSpec.describe Item do
     expect(item1.price).to eq("$3.75")
     expect(item2.price).to eq('$2.50')
   end
-
-
 end
