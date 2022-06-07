@@ -1,3 +1,5 @@
+require './lib/item'
+require './lib/food_truck'
 class Event
   attr_reader :name, :food_trucks
   attr_accessor
@@ -24,8 +26,9 @@ class Event
   end
 
   def sorted_item_list
-    items = @food_trucks.map {|food_truck|food_truck.inventory.keys}
-    item_names = items.map {|item| item.name.sort}
+    items = @food_trucks.flat_map {|food_truck|food_truck.inventory.keys}
+    item_names = items.map {|item| item.name}
+    item_names.uniq.sort
   end
 
 

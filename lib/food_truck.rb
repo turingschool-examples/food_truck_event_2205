@@ -1,10 +1,11 @@
+require './lib/item'
 class FoodTruck
   attr_reader :name
   attr_accessor :inventory
 
   def initialize(name)
     @name = name
-    @inventory = {}
+    @inventory = Hash.new(0)
   end
 
   def check_stock(item)
@@ -16,12 +17,7 @@ class FoodTruck
   end
 
   def stock(item, quantity)
-    if @inventory.keys.include?(item)
-      @inventory[item] + quantity
-    else
-      @inventory.keys << item
-      @inventory[item] = quantity
-    end
+    @inventory[item]+=quantity
   end
 
   def potential_revenue
