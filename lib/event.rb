@@ -27,15 +27,16 @@ class Event
 
   def overstocked_items #stuck, moving forward and will come back
     overstock_list = []
-    food_trucks.each do |truck|
-      truck.inventory.keys.each do |item|
-        if truck.check_stock(item) >= 50
-          overstock_list << item
-        end
-      end
-      # require "pry"; binding.pry
-      overstock_list
+    @food_trucks.each do |truck|
+      truck.inventory.each {|item| overstock_list << item[0] if item[1] >= 50}
     end
+    items_over_in_mult = []
+    overstock_list.each do |item| #could use find_all
+      if self.food_trucks_that_sell(item).count > 1
+        items_over_in_mult << item
+      end
+    end
+    items_over_in_mult
   end
 
   def sorted_item_list
