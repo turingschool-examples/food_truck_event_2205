@@ -22,6 +22,7 @@ RSpec.describe FoodTruck do
   end
 
   it 'can stock the specified item with x quantity' do
-    expect(@food_truck.stock(@item1, 30)).to eq(item1)
+    @food_truck.stock(@item1, 30)
+    expect(@food_truck.inventory).to eq({@item1 => 30})
   end
 end
