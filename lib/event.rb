@@ -72,6 +72,8 @@ require 'pry'
   def sell(item,amount)
     if total_inventory_by_item(item) < amount
       return false
+    else
+      return true
     end
   end
 
