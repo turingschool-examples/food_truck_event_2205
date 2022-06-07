@@ -46,4 +46,17 @@ class Event
     end
     return list.uniq
   end
+
+  def total_inventory
+    #creates a hash, items as keys. 3 nested enumerables?
+    #values are a hash(quantity written below), food_trucks = self.food_trucks_that_sell(key)
+    #uniq does not work on hashes, RIP time.
+    total_inventory = {}
+    @food_trucks.each do |truck|
+      truck.inventory.each do |item|
+        total_inventory[item] = {}
+      end
+    end
+    require "pry"; binding.pry
+  end
 end
