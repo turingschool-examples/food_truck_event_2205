@@ -72,9 +72,14 @@ require 'pry'
   def sell(item,amount)
     if total_inventory_by_item(item) < amount
       return false
-    else
-      return true
     end
+
+    trucks = @food_trucks.select {|truck| truck.inventory.include?(item)}
+
+    trucks[0].stock(item,0-amount)
+
+    return true
+
   end
 
 end
