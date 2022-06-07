@@ -25,9 +25,17 @@ class Event
     inventories_in_single_hash
     duplicate_items_array
     items_greater_than_50_hash
-    list_of_all_items_at_event.uniq.select do |item|  
+    list_of_all_items_at_event.uniq.select do |item|
       duplicate_items_array.include?(item) && items_greater_than_50_hash.keys.include?(item)
     end
+  end
+
+  def sorted_item_list
+    food_truck_inventories_array
+    item_list = list_of_all_items_at_event.map do |item|
+      item.name
+    end
+    item_list.uniq.sort
   end
 
   #helper1 to overstocked_items
