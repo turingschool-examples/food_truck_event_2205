@@ -45,6 +45,23 @@ class Event
     total_inventory_hash
   end
 
+  def sell(item, quantity)
+    item_quant = total_inventory[item][:quantity]
+    if  item_quant < quantity
+      return false
+    else
+      total_inventory[item][:quantity] -= quantity
+      total_inventory[item][:food_trucks].map! do |food_truck|
+        if food_truck.inventory[item] < quantity
+          quantity -= food_truck.inventory[item]
+          food_truck.inventory[item] = 0
+        end
+      end
+      return true
+    end
+
+  end
+
   #helper1 to overstocked_items
   #helper1 to sorted_item_list
   #helper1 to total_inventory
