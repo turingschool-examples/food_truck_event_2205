@@ -65,7 +65,17 @@ RSpec.describe Event do
     expect(@event.food_trucks_that_sell(@item4)).to eq([@food_truck2])
   end
 
-  it 'returns overstocked items' do
+  it 'returns if true if given item sold by more than one truck' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    expect(@event.sold_by_more_than_one_truck?(@item1)).to be true
+
+    expect(@event.sold_by_more_than_one_truck?(@item2)).to be false
+  end
+
+  xit 'returns overstocked items' do
     @event.add_food_truck(@food_truck1)
     @event.add_food_truck(@food_truck2)
     @event.add_food_truck(@food_truck3)
