@@ -25,50 +25,46 @@ RSpec.describe Event do
   end
 
   describe 'iteration 2 (and 3)' do
-  before :each do
-    @food_truck1.stock(@item1, 35)
-    @food_truck1.stock(@item2, 7)
-    @food_truck2.stock(@item4, 50)
-    @food_truck2.stock(@item3, 25)
-    @food_truck3 = FoodTruck.new("Palisade Peach Shack")
-    @food_truck3.stock(@item1, 65)
-    @food_truck3.stock(@item3, 10)
-    @event.add_food_truck(@food_truck1)
-    @event.add_food_truck(@food_truck2)
-    @event.add_food_truck(@food_truck3)
-  end
+    before :each do
+      @food_truck1.stock(@item1, 35)
+      @food_truck1.stock(@item2, 7)
+      @food_truck2.stock(@item4, 50)
+      @food_truck2.stock(@item3, 25)
+      @food_truck3 = FoodTruck.new("Palisade Peach Shack")
+      @food_truck3.stock(@item1, 65)
+      @food_truck3.stock(@item3, 10)
+      @event.add_food_truck(@food_truck1)
+      @event.add_food_truck(@food_truck2)
+      @event.add_food_truck(@food_truck3)
+    end
 
-  xit 'can check for overstocked items' do
-    expect(@event.overstocked_items).to eq(@item1)
-  end
 
-  xit 'can add food trucks to event' do
-    expect(@event.food_trucks).to eq([@food_truck1, @food_truck2, @food_truck3])
-  end
+    xit 'can add food trucks to event' do
+      expect(@event.food_trucks).to eq([@food_truck1, @food_truck2, @food_truck3])
+    end
 
-  xit 'can list truck names' do
-    expect(@event.food_truck_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
-  end
+    xit 'can list truck names' do
+      expect(@event.food_truck_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
+    end
 
-  xit 'can list trucks that sell a certain item' do
-    expect(@event.food_trucks_that_sell(@item1)).to eq([@food_truck1, @food_truck3])
-    expect(@event.food_trucks_that_sell(@item3)).to eq([@food_truck2, @food_truck3])
-  end
+    xit 'can check for overstocked items' do
+      expect(@event.overstocked_items).to eq(@item1)
+    end
+    
+    xit 'can list items alphabetically, with no doubles' do
+      expect(@event.sorted_item_list).to eq(["Peach Pie (Slice)", "Apple Pie (Slice)", "Banana Nice Cream", "Peach-Raspberry Nice Cream"])
+    end
 
-  xit 'can list items alphabetically, with no doubles' do
-    expect(@event.sorted_item_list).to eq(["Peach Pie (Slice)", "Apple Pie (Slice)", "Banana Nice Cream", "Peach-Raspberry Nice Cream"])
-  end
-
-  xit 'can check total inventory' do
-    expected_hash = {@item1 => {quantity: 100,
-                                food_trucks:@event.food_trucks_that_sell(@item1)},
-                     @item2 => {quantity: 100,
-                                food_trucks:@event.food_trucks_that_sell(@item2)},
-                     @item3 => {quantity: 100,
-                                food_trucks:@event.food_trucks_that_sell(@item3)},
-                     @item4 => {quantity: 100,
-                                food_trucks:@event.food_trucks_that_sell(@item4)}
-                   }
+    xit 'can check total inventory' do
+      expected_hash = {@item1 => {quantity: 100,
+                                  food_trucks:@event.food_trucks_that_sell(@item1)},
+                       @item2 => {quantity: 100,
+                                  food_trucks:@event.food_trucks_that_sell(@item2)},
+                       @item3 => {quantity: 100,
+                                  food_trucks:@event.food_trucks_that_sell(@item3)},
+                       @item4 => {quantity: 100,
+                                  food_trucks:@event.food_trucks_that_sell(@item4)}
+                     }
 
       expect(@event.total_inventory).to be_a(Hash)
       expect(@event.total_inventory).to eq(expected_hash)
