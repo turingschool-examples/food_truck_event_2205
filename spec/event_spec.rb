@@ -50,8 +50,8 @@ RSpec.describe Event do
       expect(@event.food_trucks_that_sell(@item1)).to eq([@food_truck1, @food_truck3])
     end
 
-    xit 'can check for overstocked items' do
-      expect(@event.overstocked_items).to eq(@item1)
+    it 'can check for overstocked items' do
+      expect(@event.overstocked_items).to eq([@item1])
     end
 
     it 'can list items alphabetically, with no doubles' do
