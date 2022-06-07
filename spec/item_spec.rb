@@ -11,6 +11,6 @@ RSpec.describe do
   end
 
   it 'has a name' do
-    expect(@item1.name).to eq("Apple Pie (Slice)")
+    expect(@item2.name).to eq("Apple Pie (Slice)")
   end
 end
