@@ -17,4 +17,11 @@ class Event
       food_truck.name
     end
   end
+
+  def food_trucks_that_sell(item)
+    @food_trucks.find_all do |food_truck|
+      food_truck.check_stock(@item1) == item
+    end
+
+  end
 end
