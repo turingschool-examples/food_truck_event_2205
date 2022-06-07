@@ -70,4 +70,74 @@ RSpec.describe Event do
     expect(event.total_inventory.count).to eq(4)
   end
 
+  describe "iteration 3" do
+    before :each do
+      @food_truck3.stock(@item3, 10)
+    end
+#suggested to do total_inventory first
+    it "can calculate overstocked_items" do
+      @event.add_food_truck(@food_truck1)
+      @event.add_food_truck(@food_truck2)
+      @event.add_food_truck(@food_truck3)
+
+      expect(@event.overstocked_items).to eq([@item1])
+    end
+
+    it "can return an alphabetical list of item names" do
+      @event.add_food_truck(@food_truck1)
+      @event.add_food_truck(@food_truck2)
+      @event.add_food_truck(@food_truck3)
+
+      expect(@event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
+    end
+  end
+
+#student expect example
+  # it "can return a total_inventory hash" do
+  #   expect(@event.total_inventory).to eq({@item1 => {quantity: 100, food_trucks: [@food_truck1, @food_truck3]}, @item2 => {quantity: 7, food_trucks: [@food_truck1]}, @item_3 => {quantity: 35, food_trucks: [@food_truck2, @food_truck3]}, @item4 => {quantity: 50, food_trucks: [@food_truck2]}})
+  # end
+  it "can return a total_inventory hash" do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    expected = {
+      @item1 => {
+        quantity:100,
+        food_trucks: [@food_truck1, @food_truck3]
+      },
+      @item2 => {
+        quantity: 7,
+        food_trucks:[@food_truck1]
+      },
+      @item3 => {
+        quantity: 35,
+        food_trucks:[@food_truck2, @food_truck3]
+      },
+      @item4 => {
+        quantity: 50,
+        food_trucks [@food_truck2]
+      },
+    }
+
+    expect(@event.total_inventory).to eq(expected)
+
+    # expect(@event.total_inventory).to eq({@item1 => {quantity: 100, food_trucks: [@food_truck1, @food_truck3]}, @item2 => {quantity: 7, food_trucks: [@food_truck1]}, @item_3 => {quantity: 35, food_trucks: [@food_truck2, @food_truck3]}, @item4 => {quantity: 50, food_trucks: [@food_truck2]}})
+  end
+
+  describe  "iteration 4" do
+    before :each do
+      item5 = Item.new({name: 'Onion Pie', price: '$25.00'})
+      @event.add_food_truck(@food_truck1)
+      @event.add_food_truck(@food_truck2)
+      @event.add_food_truck(@food_truck3)
+    end
+
+    it "can sell an item from any food truck that has it in stock" do
+      #should fail because we don't have 200 of item 1
+      expect(@event.sell(@item1, 200)).to eq(false)
+
+    end
+  end
+
 end

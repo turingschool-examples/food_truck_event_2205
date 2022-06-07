@@ -27,6 +27,28 @@ class FoodTruck
       total_potential_rev += item[:stock_item].price * item[:quantity]
     end
     total_potential_rev
+
+#alternative way 1
+    # @inventory.sum {|item,amount| item.price * amount}
   end
+
+  # alternative way2
+  # def potential_revenue
+  #   revenue = 0
+  #   @inventory.each do |item, num|
+  #     revenue += (item.price * num)
+  #   end
+  #   revenue
+  # end
+  #alternativeway3
+  # def potential_revenue
+  #     @inventory.sum do |item, quantity|
+  #       item.price * quantity
+  #     end
+  #   end
+  #alternative way 4
+  # def potential_revenue
+  #     @inventory.map { |item, amt| item.price * amt }.sum
+  #   end
 
 end
