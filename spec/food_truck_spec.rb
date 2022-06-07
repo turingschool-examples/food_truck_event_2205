@@ -12,6 +12,6 @@ RSpec.describe FoodTruck do
   end
 
   it "has inventory in a hash" do
-
+    expect(food_truck.inventory).to eq({})
   end
 end
