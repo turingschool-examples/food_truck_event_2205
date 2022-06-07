@@ -1,3 +1,4 @@
+require 'pry'
 class Event
   attr_reader :name,
               :food_trucks
@@ -22,4 +23,32 @@ class Event
       food_truck.inventory.include?(item)
     end
   end
+
+  
+
+  # def overstocked_items #come back to if time
+  #   # the_inventory = @food_trucks.map do |food_truck|
+  #   #   food_truck.inventory
+  #   # end
+  #   array_of_inventory = @food_trucks.map {|food_truck| food_truck.inventory}
+  #   if array_of_inventory.length < array_of_inventory.uniq.length
+  #   end
+  # end
+
+  # def total_of_item_at_event(item) #come back to if time
+  #   the_inventory = @food_trucks.map do |food_truck|
+  #       food_truck.inventory
+  #     end
+  #   variable = the_inventory.map do |item_instance|
+  #         # binding.pry
+  #       if item_instance.include?(item)
+  #         item_instance
+  #       end
+  #                 binding.pry
+  #     end
+  #     return "IDK"
+  #   end
+
+
+
 end

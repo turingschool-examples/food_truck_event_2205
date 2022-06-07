@@ -56,15 +56,21 @@ RSpec.describe Event do
     expect(@food_truck3.potential_revenue).to eq(243.75)
   end
 
-  xit 'can check overstocked items' do
+  xit 'can check overstocked items' do #come back to if time
     @food_truck3.stock(@item3, 10)
 
     expect(@event.overstocked_items).to eq([@item1])
   end
 
-  it 'can find out how many of a specific item are at an event' do
+  it 'can return a sorted list of Item names for an Event' do
     @food_truck3.stock(@item3, 10)
+    expect(@event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
 
-    expect(@event.total_of_item_at_event(@item1)).to eq(100)
   end
+
+  # it 'can find out how many of a specific item are at an event' do
+  #   @food_truck3.stock(@item3, 10)
+  #
+  #   expect(@event.total_of_item_at_event(@item1)).to eq(100)
+  # end
 end
