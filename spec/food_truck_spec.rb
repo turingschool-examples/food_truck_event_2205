@@ -30,4 +30,9 @@ RSpec.describe do
     expect(@food_truck.inventory.keys[0].class).to eq(Item)
     expect(@food_truck.inventory.values[0]).to eq(30)
   end
+
+  it 'can return the amount of food in inventory after adding stock' do
+    @food_truck.stock(@item1, 30)
+    expect(@food_truck.check_stock(@item1)).to eq(30)
+  end
 end

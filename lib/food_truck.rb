@@ -7,8 +7,9 @@ class FoodTruck
   end
 
   def check_stock(item)
-    amount = @inventory.find { |item_name, amount| @inventory[item] }
-    amount == nil ? 0 : amount
+    amount = @inventory.find { |item_name, amount| item_name = item }
+    # require 'pry' ; binding.pry
+    amount == nil ? 0 : amount[1]
   end
 
 def stock(food, amount)
