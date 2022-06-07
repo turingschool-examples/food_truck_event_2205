@@ -12,6 +12,11 @@ class FoodTruck
   end
 
   def stock(item, quantity)
-    @inventory.store(item, quantity)
+    @inventory.include?(item) ? update_stock(item, quantity) : @inventory.store(item, quantity)
+  end
+
+  def update_stock(item, quantity)
+    new_quantity = @inventory[item] + quantity
+    @inventory[item] = new_quantity
   end
 end
