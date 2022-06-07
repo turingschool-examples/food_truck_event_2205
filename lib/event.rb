@@ -41,18 +41,12 @@ class Event
   def total_inventory
     food_truck_inventories_array
     inventories_in_single_hash
-    total_inventory_hash = Hash.new
-    inventories_in_single_hash.each do |item, count|
-      total_inventory_hash[item] = {
-        quantity: count,
-        food_trucks: food_trucks_that_sell(item)
-      }
-    end
     total_inventory_hash
   end
 
   #helper1 to overstocked_items
   #helper1 to sorted_item_list
+  #helper1 to total_inventory
   def food_truck_inventories_array
     @inventories = @food_trucks.map do |food_truck|
       food_truck.inventory
@@ -70,6 +64,7 @@ class Event
   end
 
   #helper3 to overstocked_items
+  #heler2 to total_inventory
   def inventories_in_single_hash
     merged_inventory = Hash.new(0)
     @inventories.each do |inventory|
@@ -93,5 +88,17 @@ class Event
     quantity_greater_than_50 = inventories_in_single_hash.select do |item, count|
       count > 50
     end
+  end
+
+  #heler3 to total_inventory
+  def total_inventory_hash
+    total_inventory_hash = Hash.new
+    inventories_in_single_hash.each do |item, count|
+      total_inventory_hash[item] = {
+        quantity: count,
+        food_trucks: food_trucks_that_sell(item)
+      }
+    end
+    total_inventory_hash
   end
 end
