@@ -40,4 +40,20 @@ class Event
         end
         return_hash      
     end
+
+    def sell(item, qty)
+        if !total_inventory.include?(item) || total_inventory.dig(item, :quantity) < qty
+            return false
+        else
+            food_trucks_that_sell(item).each do |truck|
+                if truck.inventory[item] < qty
+                    qty -= truck.inventory[item]
+                    truck.inventory[item] = 0
+                else
+                    truck.inventory[item] -= qty
+                end
+            end
+            return true
+        end
+    end
 end

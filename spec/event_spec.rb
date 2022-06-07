@@ -7,6 +7,7 @@ RSpec.describe Event do
     let(:item_2) {Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})}
     let(:item_3) {Item.new({name: "Peach-Raspberry Nice Cream", price: "$5.30"})}
     let(:item_4) {Item.new({name: "Banana Nice Cream", price: "$4.25"})}
+    let(:item_5) {Item.new({name: "onion pie", price: "$25.00"})}
     let(:food_truck_1) {FoodTruck.new("Rocky Mountain Pies")}
     let(:food_truck_2) {FoodTruck.new("Ba-Nom-a-Nom")}
     let(:food_truck_3) {FoodTruck.new("Palisade Peach Shack")}
