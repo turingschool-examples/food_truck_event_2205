@@ -6,4 +6,9 @@ class FoodTruck
     @inventory = {}
   end
 
+  def check_stock(item)
+    amount = @inventory.find { |item_name, amount| @inventory[item] }
+    amount == nil ? 0 : amount
+  end
+
 end
