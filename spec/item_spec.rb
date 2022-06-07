@@ -12,7 +12,7 @@ RSpec.describe Item do
     expect(@item2).to be_a(Item)
   end
 
-  xit 'item has a name and price' do
+  it 'item has a name and price' do
     expect(@item2.name).to eq("Apple Pie (Slice)")
     expect(@item2.price).to eq(2.50)
   end
