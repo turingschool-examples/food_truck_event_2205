@@ -1,4 +1,5 @@
 require './lib/item'
+require 'pry'
 
 
 RSpec.describe Item do
@@ -10,5 +11,7 @@ RSpec.describe Item do
   it "exists with attributes" do
     expect(@item1).to be_instance_of Item
     expect(@item2).to be_instance_of Item
+    expect(@item2.name).to eq('Apple Pie (Slice)')
+    expect(@item2.price).to eq(2.50)
   end
 end
