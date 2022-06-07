@@ -8,7 +8,7 @@ class FoodTruck
   end
 
   def check_stock(item)
-    @inventory.select {|item_object| item_object == item}
+    @inventory.select {|item_object| item_object == item}.count
   end
 
 end
