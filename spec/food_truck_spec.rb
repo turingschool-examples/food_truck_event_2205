@@ -22,4 +22,22 @@ RSpec.describe FoodTruck do
       expect(food_truck.inventory[peach_pie]).to eq(30)
     end
   end
+
+  describe "#check_stock(item)" do
+    context "when stocked" do
+      before do
+        food_truck.stock(peach_pie, 30)
+      end
+
+      it "returns the quantity" do
+        expect(food_truck.check_stock(peach_pie)).to eq(30)
+      end
+    end
+
+    context "when NOT stocked" do
+      it "returns the quantity" do
+        expect(food_truck.check_stock(peach_pie)).to eq(0)
+      end
+    end
+  end
 end
