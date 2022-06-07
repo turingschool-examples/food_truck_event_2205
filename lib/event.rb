@@ -59,7 +59,6 @@ require 'pry'
 
   def total_inventory
     return_hash = {}
-
     all_items_on_sale.uniq.each do |item|
       item_hash = {
         quantity: total_inventory_by_item(item),
@@ -67,8 +66,13 @@ require 'pry'
       }
       return_hash[item] = item_hash
     end
-
     return_hash
+  end
+
+  def sell(item,amount)
+    if total_inventory_by_item(item) < amount
+      return false
+    end
   end
 
 end
