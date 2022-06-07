@@ -12,4 +12,8 @@ class FoodTruck
   def check_stock(item)
     @inventory[item]
   end
+
+  def potential_revenue
+    @inventory.map {|item, qty| item.price * qty}.sum
+  end
 end
