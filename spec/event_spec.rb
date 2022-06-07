@@ -145,11 +145,19 @@ RSpec.describe Event do
   end
 
   it 'returns false when stock is lower than sell amount' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
     expect(@event.sell(@item1, 200)).to be false
     expect(@event.sell(@item5, 1)).to be false
   end
 
   it 'returns true if stock is available' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
     expect(@event.sell(@item4, 5)).to be true
   end
 
