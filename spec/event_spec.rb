@@ -84,7 +84,7 @@ RSpec.describe Event do
     expect(@event.sold_by_more_than_one_truck?(@item2)).to be false
   end
 
-  xit 'returns total inventory of an item' do
+  it 'returns total inventory of an item' do
     @event.add_food_truck(@food_truck1)
     @event.add_food_truck(@food_truck2)
     @event.add_food_truck(@food_truck3)
@@ -93,7 +93,14 @@ RSpec.describe Event do
     expect(@event.total_inventory_by_item(@item2)).to eq(7)
     expect(@event.total_inventory_by_item(@item3)).to eq(35)
     expect(@event.total_inventory_by_item(@item4)).to eq(50)
+  end
 
+  it 'returns array of all items' do
+    @event.add_food_truck(@food_truck1)
+    @event.add_food_truck(@food_truck2)
+    @event.add_food_truck(@food_truck3)
+
+    expect(@event.all_items_on_sale).to eq([@item1,@item2,@item3,@item4])
   end
 
   xit 'returns overstocked items' do
