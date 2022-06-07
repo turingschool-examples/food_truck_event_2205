@@ -3,7 +3,7 @@ require './lib/food_truck'
 
 RSpec.describe FoodTruck do
 
-  describe "#iteration 1" do
+  describe "#Iteration 1" do
     food_truck = FoodTruck.new("Rocky Mountain Pies")
     item1 = Item.new({name: 'Peach Pie (Slice)', price: "$3.75"})
     item2 = Item.new({name: 'Apple Pie (Slice)', price: '$2.50'})
