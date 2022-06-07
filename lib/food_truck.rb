@@ -13,7 +13,7 @@ class FoodTruck
   end
 
   def stock(item, quantity)
-    @inventory[item] += quantity
+    @inventory[item] != nil ? @inventory[item] += quantity : add_new_item_to_inventory(item) && stock(item,quantity)
   end
 
   def add_new_item_to_inventory(item)
