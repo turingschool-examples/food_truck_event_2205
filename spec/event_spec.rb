@@ -95,12 +95,16 @@ RSpec.describe Event do
     expect(@event.total_inventory_by_item(@item4)).to eq(50)
   end
 
-  it 'returns array of all items' do
+  it 'returns array of all item objects' do
     @event.add_food_truck(@food_truck1)
     @event.add_food_truck(@food_truck2)
     @event.add_food_truck(@food_truck3)
 
-    expect(@event.all_items_on_sale).to eq([@item1,@item2,@item3,@item4])
+    expect(@event.all_items_on_sale.include?(@item1)).to be true
+    expect(@event.all_items_on_sale.include?(@item2)).to be true
+    expect(@event.all_items_on_sale.include?(@item3)).to be true
+    expect(@event.all_items_on_sale.include?(@item4)).to be true
+    expect(@event.all_items_on_sale.include?(@item5)).to be false
   end
 
   xit 'returns overstocked items' do
