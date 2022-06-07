@@ -44,4 +44,8 @@ RSpec.describe Event do
   it 'can find the events food trucks names' do
     expect(@event.food_trucks_names).to eq(["Rocky Mountain Pies", "Ba-Nom-a-Nom", "Palisade Peach Shack"])
   end
+
+  it 'can find the food trucks that sell a specific item' do
+    expect(@event.food_trucks_that_sell(@item1)).to eq([@food_truck1, @food_truck3])
+  end
 end
