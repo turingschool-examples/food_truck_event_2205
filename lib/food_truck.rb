@@ -31,5 +31,3 @@ class FoodTruck
     individul_item_revenue.sum
   end
 end
-
-# A FoodTruck will be able to calculate their potential_revenue - the sum of all their items' price * quantity.
