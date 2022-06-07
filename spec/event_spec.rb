@@ -16,7 +16,8 @@ RSpec.describe Event do
         food_truck_1.stock(item_2, 7)
         food_truck_2.stock(item_3, 25)
         food_truck_2.stock(item_4, 50)
-        food_truck_3.stock(item_1, 65) 
+        food_truck_3.stock(item_1, 65)
+        food_truck_3.stock(item_3, 10)  
     end
     it 'exists' do
         expect(event).to be_a(Event)
@@ -51,5 +52,31 @@ RSpec.describe Event do
 
         expect(event.food_trucks_that_sell(item_1)).to eq([food_truck_1, food_truck_3])
         expect(event.food_trucks_that_sell(item_4)).to eq([food_truck_2])
+    end
+
+    it 'returns overstocked items' do
+        event.add_food_truck(food_truck_1)
+        event.add_food_truck(food_truck_2)
+        event.add_food_truck(food_truck_3)
+
+        expect(event.overstocked_items).to eq([item_1])
+    end
+
+    it ' sorts items alphabetically' do
+        event.add_food_truck(food_truck_1)
+        event.add_food_truck(food_truck_2)
+        event.add_food_truck(food_truck_3)
+        
+        expect(event.sorted_item_list).to eq(["Apple Pie (Slice)", "Banana Nice Cream", "Peach Pie (Slice)", "Peach-Raspberry Nice Cream"])
+    end
+
+    it 'returns a hash of the total inventory' do
+        event.add_food_truck(food_truck_1)
+        event.add_food_truck(food_truck_2)
+        event.add_food_truck(food_truck_3)
+
+        expect(event.total_inventory).to be_a(Hash)
+        expect(event.total_inventory.length).to eq(4)
+        expect(event.total_inventory[item_1]).to eq({quantitiy: 100, food_trucks: [food_truck_1, food_truck_2]})
     end
 end
