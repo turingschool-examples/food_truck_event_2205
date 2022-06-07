@@ -13,4 +13,11 @@ RSpec.describe do
   it 'has a name' do
     expect(@item2.name).to eq("Apple Pie (Slice)")
   end
+
+  it 'has a price' do
+    expect(@item2.price).to eq(2.50)
+  end
+
+  # require 'pry' ; binding.pry
+
 end
