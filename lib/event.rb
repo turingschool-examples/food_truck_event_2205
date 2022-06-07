@@ -39,13 +39,7 @@ require 'pry'
   end
 
   def sold_by_more_than_one_truck?(item)
-    all_inventory = []
-    @food_trucks.each do |truck|
-      truck.inventory.each do |inventory_item|
-        all_inventory << inventory_item[0]
-      end
-    end
-    all_inventory.count(item) > 1
+    food_trucks_that_sell(item).length > 1
   end
 
   def total_inventory_by_item(item)
