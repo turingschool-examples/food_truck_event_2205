@@ -1,3 +1,4 @@
+require 'date'
 require './lib/item'
 require './lib/food_truck'
 require './lib/event'
@@ -150,5 +151,9 @@ RSpec.describe Event do
     expect(@event.total_inventory[@item2][:food_trucks]).to eq([@food_truck1])
     expect(@event.total_inventory[@item3][:quantity]).to eq(35)
     expect(@event.total_inventory[@item4][:food_trucks]).to eq([@food_truck2])
+  end
+
+  it 'has a date' do
+    expect(@event.date).to eq("06/07/2022")
   end
 end
